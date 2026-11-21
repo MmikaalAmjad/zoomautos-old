@@ -108,8 +108,9 @@ const [formData, setFormData] = useState<Record<string, any>>({
           const body = encodeURIComponent(`Service Type: MULTI DROP OFF\nForm Data: ${JSON.stringify(payload, null, 2)}`);
           window.location.href = `mailto:noreply@zoomautos.co.uk?subject=${subject}&body=${body}`;
           setSuccess(true);
-      };
-    
+      }
+  };
+
   const [existingIds, setExistingIds] = useState(new Set());
   const [jobId, setJobId] = useState('');//rm login failed 
       const [registrationNumber, setRegistrationNumber] = useState('');
