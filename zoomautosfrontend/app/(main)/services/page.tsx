@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import { MdDesignServices } from "react-icons/md";
 import Carousel from '@/components/homepage/carousel/carousel';
 
@@ -27,7 +26,7 @@ const Services = () => {
       </div>
       <div className='grid-container-services'>
         {services.map((service, index) => (
-          <Card
+          <div
             key={index}
             style={{
               width: '18rem',
@@ -65,11 +64,9 @@ const Services = () => {
               <MdDesignServices size={48} color="#7C3AED" />
             </div>
             <div style={{ flexGrow: 1, textAlign: 'center' }}>
-              <Card.Text style={{ color: '#FFFFFF', fontSize: '0.875rem' }}>
-                {service.description}
-              </Card.Text>
+              <p style={{ color: '#FFFFFF', fontSize: '0.875rem' }}>{service.description}</p>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
     </>
