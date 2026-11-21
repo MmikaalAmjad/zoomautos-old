@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import axios from "axios";
 
 export default function ContactForm() {
   const [formdata, setFormData] = useState({
@@ -9,29 +8,19 @@ export default function ContactForm() {
     email: "",
     message: "",
   });
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData({ ...formdata, [name]: value });
   };
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await axios.post("https://zoomautos.co.uk/subcontract", {
-        formType: "Message",
-        ...formdata,
-      });
-      setSuccess(true);
-      setFormData({ name: "", phone: "", email: "", message: "" });
-    } catch (error: any) {
-      console.error("Error submitting form:", error.message);
-    } finally {
-      setLoading(false);
-    }
+    const subject = encodeURIComponent(`Contact Enquiry from ${formdata.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formdata.name}\nPhone: ${formdata.phone}\nEmail: ${formdata.email}\n\nMessage:\n${formdata.message}`
+    );
+    window.location.href = `mailto:noreply@zoomautos.co.uk?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -69,11 +58,10 @@ export default function ContactForm() {
           onChange={handleChange}
           required
         />
-        <button type="submit" disabled={loading} className="contact-button">
-          {loading ? "Sending..." : "Send Message"}
+        <button type="submit" className="contact-button">
+          Send Message
         </button>
       </form>
-      {success && <p>✅ Thanks for contacting us!</p>}
     </div>
   );
 }

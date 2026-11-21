@@ -1,107 +1,33 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Link from "next/link";
 import { IoCall } from "react-icons/io5";
 
+const address = "Spaces, The Porter Building, 1 Brunel Way, Slough, SL1 1FQ";
+const locationUrl = "https://maps.google.com/?q=The+Porter+Building,+1+Brunel+Way,+Slough,+SL1+1FQ";
+const contactNo = "0333 335 6969";
+const email = "noreply@zoomautos.co.uk";
+
 const Footer = () => {
-  const [locationUrl, setLocationUrl] = useState("");
-  const [address, setAddress] = useState("");
-  const [contactNo, setContactNo] = useState("");
-  const [email, setEmail] = useState("");
-
-  // Fetch Location
-  useEffect(() => {
-    const fetchLocationData = async () => {
-      try {
-        const res = await axios.get(
-          "/api/logisticslocation",
-          { params: { _t: new Date().getTime() } }
-        );
-        setLocationUrl(res.data.locationUrl || "");
-        setAddress(res.data.address || "");
-      } catch (err) {
-        console.error("Error fetching location data:", err);
-      }
-    };
-    fetchLocationData();
-  }, []);
-
-  // Fetch Contact Number
-  useEffect(() => {
-    const fetchContact = async () => {
-      try {
-        const res = await axios.get(
-          "/api/contact",
-          { params: { _t: new Date().getTime() } }
-        );
-        setContactNo(res.data.contactNo || "");
-      } catch (err) {
-        console.error("Error fetching contact number:", err);
-      }
-    };
-    fetchContact();
-  }, []);
-
-  // Fetch Email
-  useEffect(() => {
-    const fetchEmail = async () => {
-      try {
-        const res = await axios.get(
-          "/api/logisticsemail",
-          { params: { _t: new Date().getTime() } }
-        );
-        setEmail(res.data.email || "");
-      } catch (err) {
-        console.error("Error fetching email:", err);
-      }
-    };
-    fetchEmail();
-  }, []);
-
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Quick Links */}
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
-            <li>
-              <Link href="/" className="link">Home</Link>
-            </li>
-            <li>
-              <Link href="/subcontractform" className="link">Get A Quote</Link>
-            </li>
-            <li>
-              <Link href="/recovery" className="link">Recover Your Car</Link>
-            </li>
-            <li>
-              <Link href="/becomeadriver" className="link">Drive For Us</Link>
-            </li>
-            <li>
-              <Link href="/services" className="link">Our Services</Link>
-            </li>
-            <li>
-              <Link href="/contactus" className="link">Contact Us</Link>
-            </li>
-            <li>
-              <Link href="/termsandconditions" className="link">Terms and Conditions</Link>
-            </li>
+            <li><Link href="/" className="link">Home</Link></li>
+            <li><Link href="/becomeadriver" className="link">Drive For Us</Link></li>
+            <li><Link href="/services" className="link">Our Services</Link></li>
+            <li><Link href="/contactus" className="link">Contact Us</Link></li>
           </ul>
         </div>
 
-        {/* Contact Info */}
         <div className="footer-section">
           <h4>Contact Us</h4>
           <p>
             Address:{" "}
             <a href={locationUrl} target="_blank" rel="noopener noreferrer" className="link">
-              {address.split("\n").map((line, i) => (
-                <span key={i}>
-                  {line}
-                  <br />
-                </span>
-              ))}
+              {address}
             </a>
           </p>
           <p>
@@ -109,7 +35,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Social / Email */}
         <div className="footer-section">
           <h4>Call Us</h4>
           <div className="social-icons">

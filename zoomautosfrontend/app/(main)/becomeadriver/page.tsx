@@ -54,10 +54,7 @@ const imagesW = [
   { image: '/Driver 2.jpg' },
 ];
 
-export default async function UserInformationPage({ searchParams }: any) {
-  // Check for success query param after redirect
-  
-
+export default function UserInformationPage() {
   return (
     <>
       <Carousel imagesWithText={imagesW} />
@@ -69,12 +66,10 @@ export default async function UserInformationPage({ searchParams }: any) {
         <SelfEmployedDriver />
       </div>
 
-      
-
       <form
-        action="/api/driverregistration"
-        method="POST"
-        
+        action="mailto:noreply@zoomautos.co.uk"
+        method="GET"
+        encType="text/plain"
       >
         <h1>Register Yourself As a Driver</h1>
         <div className='move-container'>

@@ -1,39 +1,28 @@
 'use client';
 
 import { Card, CardBody } from "@nextui-org/react";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import './aboutus.css';
 
-// Define the type for your API response items
-interface WhatWeDoItem {
-  _id: string;
-  title: string;
-  description: string;
-}
+const whatWeDoItems = [
+  {
+    title: "Vehicle Transport",
+    description: "We provide professional driven and transported vehicle movements across the UK, including dealer-to-dealer transfers, auction collections, and direct home deliveries.",
+  },
+  {
+    title: "Vehicle Recovery",
+    description: "24/7 nationwide breakdown and accident recovery service with fast response times. We get you back on the road safely and quickly.",
+  },
+  {
+    title: "Fleet Logistics",
+    description: "Internal fleet management and large-scale fleet transfers for businesses, dealerships, and fleet operators across the UK.",
+  },
+  {
+    title: "Emergency Assistance",
+    description: "Rapid emergency motorway assistance and roadside support, ensuring your vehicle is handled with care and expertise.",
+  },
+];
 
 const AboutUs: React.FC = () => {
-  const [content, setContent] = useState<WhatWeDoItem[]>([]);
-  const [title, setTitle] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-
-  useEffect(() => {
-    fetchContent();
-  }, []);
-
-  const fetchContent = async (): Promise<void> => {
-  try {
-    const res = await fetch(`/api/whatwedo?_t=${new Date().getTime()}`);
-    if (!res.ok) {
-      throw new Error("Failed to fetch content");
-    }
-    const data: WhatWeDoItem[] = await res.json();
-    setContent(data);
-  } catch (error) {
-    console.error("Error fetching content:", error);
-  }
-};
-
   return (
     <section className="about-us-container">
       <section className="about-us">
@@ -64,14 +53,13 @@ const AboutUs: React.FC = () => {
             <p className="about-us-paragraph">
               With years of experience in the <strong>automotive logistics industry</strong>, we have
               built a strong reputation for <strong>excellence, efficiency, and customer
-              satisfaction</strong>. Whether it’s a single vehicle or an entire fleet, we ensure every
+              satisfaction</strong>. Whether it's a single vehicle or an entire fleet, we ensure every
               movement is handled with precision, providing a smooth and stress-free experience for
               our clients.
             </p>
           </div>
         </div>
 
-        {/* Our Mission Section */}
         <section className="our-mission">
           <div className="checkings">
             <h2 className="our-mission-title">Our Mission</h2>
@@ -87,20 +75,19 @@ const AboutUs: React.FC = () => {
                 At <strong>Zoom Autos</strong>, we believe in going beyond just transporting vehicles
                 — we ensure that each handover is a{" "}
                 <strong>comprehensive experience</strong>, making sure that the recipient understands
-                their new vehicle’s features, functions, and capabilities.
+                their new vehicle's features, functions, and capabilities.
               </p>
             </div>
           </div>
         </section>
 
-        {/* What We Do Section */}
         <section className="what-we-do">
           <div className="flex-containerRole">
             <h2 className="what-we-do-title">What We Do</h2>
             <div className="what-we-do-content">
               <div className="what-we-do-text">
-                {content.map((item) => (
-                  <div key={item._id}>
+                {whatWeDoItems.map((item, index) => (
+                  <div key={index}>
                     <h2 className="what-we-do-heading">{item.title}</h2>
                     <p className="what-we-do-paragraph">{item.description}</p>
                   </div>
@@ -110,7 +97,6 @@ const AboutUs: React.FC = () => {
           </div>
         </section>
 
-        {/* Our Promise Section */}
         <section className="ourPromise">
           <div className="checkings">
             <div className="promiseimageandheading">
