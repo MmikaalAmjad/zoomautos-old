@@ -1,113 +1,128 @@
-"use client";
-import React, { useState } from "react";
+"use client"
+import React, { useEffect, useState } from 'react';
+import Head from 'next/head';
+import {
+  FaWhatsapp,
+  FaPhoneAlt,
+  FaClock,
+  FaTruck,
+  FaMapMarkerAlt,
+} from 'react-icons/fa';
+import './recovery.css';
 
-export default function RecoveryPage() {
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    location: "",
-    vehicleReg: "",
-    vehicleMake: "",
-    issue: "",
-  });
+const CarRecoveryScreen = () => {
+  const phoneNumber = "447920810633";
+  const contactNumber = "0333 33 6969";
+  const message = "Hi, I need help recovering my vehicle.";
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-  const handleChange = (e: any) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
+  const texts = [
+    "🚨 Need help fast?",
+    "⛔ Stuck on the road?",
+    "🚗 We’re always nearby!",
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    const subject = encodeURIComponent(`Vehicle Recovery Request from ${form.name}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}
-Phone: ${form.phone}
-Email: ${form.email}
-Current Location: ${form.location}
-Vehicle Registration: ${form.vehicleReg}
-Vehicle Make/Model: ${form.vehicleMake}
-Issue Description: ${form.issue}`
-    );
-    window.location.href = `mailto:noreply@zoomautos.co.uk?subject=${subject}&body=${body}`;
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % texts.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <>
-      <h1 style={{ marginTop: "120px", textAlign: "center" }}>Vehicle Recovery</h1>
-      <p style={{ textAlign: "center", color: "#555", marginBottom: "1rem" }}>
-        Broken down or had an accident? We're here 24/7 across the UK.
-      </p>
+      <Head>
+        <title>24/7 Vehicle Recovery Services | Zoom Autos</title>
+        <meta
+          name="description"
+          content="Fast and reliable 24/7 car recovery and vehicle transport services across the UK. Call or WhatsApp Zoom Autos now!"
+        />
+        <meta name="robots" content="index, follow" />
 
-      <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-        <a
-          href="tel:03333356969"
-          style={{
-            display: "inline-block",
-            background: "#e80f17",
-            color: "white",
-            padding: "1rem 2rem",
-            borderRadius: "8px",
-            fontSize: "1.3rem",
-            fontWeight: "bold",
-            textDecoration: "none",
-          }}
-        >
-          📞 Call Now: 0333 335 6969
-        </a>
-        <p style={{ marginTop: "0.75rem", color: "#555" }}>For immediate recovery assistance, call us directly.</p>
-      </div>
+        {/* Open Graph */}
+        <meta property="og:title" content="24/7 Vehicle Recovery Services | Zoom Autos" />
+        <meta property="og:description" content="Fast and reliable 24/7 car recovery and vehicle transport services across the UK." />
+        <meta property="og:image" content="/editsuccess.png" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.zoomautos.co.uk/Recovery" />
 
-      <div className="move-container">
-        <div className="mve-form">
-          <h2>Request Recovery Online</h2>
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="24/7 Vehicle Recovery Services | Zoom Autos" />
+        <meta name="twitter:description" content="Fast and reliable 24/7 car recovery and vehicle transport services across the UK." />
+        <meta name="twitter:image" content="/editsuccess.png" />
+      </Head>
 
-          <form onSubmit={handleSubmit}>
-            <div className="form-row">
-              <div className="form-group">
-                <label>Full Name</label>
-                <input type="text" name="name" value={form.name} onChange={handleChange} required placeholder="Your full name" />
-              </div>
-              <div className="form-group">
-                <label>Phone Number</label>
-                <input type="tel" name="phone" value={form.phone} onChange={handleChange} required placeholder="07xxx xxxxxx" />
-              </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label>Email Address</label>
-                <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="your@email.com" />
-              </div>
-              <div className="form-group">
-                <label>Current Location</label>
-                <input type="text" name="location" value={form.location} onChange={handleChange} required placeholder="Postcode or nearest landmark" />
-              </div>
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label>Vehicle Registration</label>
-                <input type="text" name="vehicleReg" value={form.vehicleReg} onChange={handleChange} placeholder="e.g. AB12 CDE" />
-              </div>
-              <div className="form-group">
-                <label>Vehicle Make &amp; Model</label>
-                <input type="text" name="vehicleMake" value={form.vehicleMake} onChange={handleChange} placeholder="e.g. Ford Focus" />
-              </div>
-            </div>
-
-            <div className="form-group">
-              <label>Describe the Issue</label>
-              <textarea name="issue" value={form.issue} onChange={handleChange} rows={4} required placeholder="e.g. broken down on the M25, engine won't start..." />
-            </div>
-
-            <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
-              <button type="submit" className="contact-button">
-                Submit Recovery Request
-              </button>
-            </div>
-          </form>
+      <div className="recovery-container">
+        {/* Hero Section */}
+        <div className="hero-image">
+          <img src="/editsuccess.png" alt="Car Recovery" />
+          <div className="hero-overlay">
+            <h1 className="hero-text">
+              Stranded? We Are Just A Call Away, 24/7 Breakdown Recovery and Vehicle Support
+            </h1>
+            <p className="hero-subtext">
+              Fast, Reliable, and Affordable Getting You and Your Vehicle Back on Track
+            </p>
+          </div>
         </div>
+
+        {/* Features Section */}
+        <div className="features-section">
+          <div className="feature-box">
+            <FaClock className="feature-icon" />
+            <p>24/7 Recovery</p>
+          </div>
+          <div className="feature-box">
+            <FaTruck className="feature-icon" />
+            <p>Fast Dispatch</p>
+          </div>
+          <div className="feature-box">
+            <FaMapMarkerAlt className="feature-icon" />
+            <p>Nationwide Service</p>
+          </div>
+        </div>
+
+        {/* Call to Action Section */}
+        <div className="cta-section">
+          <h2>Vehicle Won’t Start? Don’t Worry.</h2>
+          <p>
+            At Zoom Autos, we specialise in professional vehicle transport and recovery services across the UK, offering reliable solutions for breakdown and accident recovery, emergency motorway assistance, and both driven and transported vehicle movements. 
+            Call or WhatsApp us now.
+          </p>
+          <div className="cta-buttons">
+            <a href={`tel:+${contactNumber}`} className="cta-call">
+              <FaPhoneAlt className="cta-icon" />
+              Call Now
+            </a>
+            <a
+              href={whatsappLink}
+              className="cta-whatsapp"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaWhatsapp className="cta-icon" />
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        {/* Floating Chat Bubble */}
+        <div className="chat-bubble">{texts[currentIndex]}</div>
+
+        {/* Floating WhatsApp Button */}
+        <a
+          href={whatsappLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="floating-whatsapp"
+        >
+          <FaWhatsapp size={30} />
+        </a>
       </div>
     </>
   );
-}
+};
+
+export default CarRecoveryScreen;
