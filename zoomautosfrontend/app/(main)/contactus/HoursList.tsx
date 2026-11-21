@@ -31,12 +31,12 @@ export default function HoursList() {
               justifyContent: "space-between",
               padding: "4px 0",
               fontWeight: isToday ? "bold" : "normal",
-              color: isToday ? "#e80f17" : "#222",
-              borderBottom: "1px solid #eee",
+              color: isToday ? "#e80f17" : "#ffffff",
+              borderBottom: "1px solid rgba(255,255,255,0.15)",
             }}
           >
             <span>{isToday ? `${timing.day} (Today)` : timing.day}</span>
-            <span style={{ color: isClosed ? "#999" : isToday ? "#e80f17" : "#222" }}>
+            <span style={{ color: isClosed ? "#aaa" : isToday ? "#e80f17" : "#ffffff" }}>
               {isClosed ? "Closed" : `${timing.startTime} – ${timing.endTime}`}
             </span>
           </div>
