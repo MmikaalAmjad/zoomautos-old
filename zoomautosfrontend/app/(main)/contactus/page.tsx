@@ -1,4 +1,5 @@
 import ContactForm from "./contactform";
+import HoursList from "./HoursList";
 
 export const metadata = {
   title: "Contact Us | Zoom Autos - Vehicle Transport & Recovery UK",
@@ -24,15 +25,6 @@ const locationUrl = "https://maps.google.com/?q=The+Porter+Building,+1+Brunel+Wa
 const contactNo = "0333 335 6969";
 const email = "noreply@zoomautos.co.uk";
 
-const timings = [
-  { day: "Monday", startTime: "8:00 AM", endTime: "6:00 PM" },
-  { day: "Tuesday", startTime: "8:00 AM", endTime: "6:00 PM" },
-  { day: "Wednesday", startTime: "8:00 AM", endTime: "6:00 PM" },
-  { day: "Thursday", startTime: "8:00 AM", endTime: "6:00 PM" },
-  { day: "Friday", startTime: "8:00 AM", endTime: "6:00 PM" },
-  { day: "Saturday", startTime: "9:00 AM", endTime: "4:00 PM" },
-  { day: "Sunday", startTime: "Closed", endTime: "" },
-];
 
 export default function ContactPage() {
   return (
@@ -55,16 +47,7 @@ export default function ContactPage() {
             <p><a href={`mailto:${email}`}>{email}</a></p>
 
             <h2>Hours</h2>
-            <div className="hours-list">
-              <ul>
-                {timings.map((timing) => (
-                  <div key={timing.day}>
-                    <span>{timing.day}</span>
-                    <span>{timing.endTime ? `${timing.startTime} - ${timing.endTime}` : timing.startTime}</span>
-                  </div>
-                ))}
-              </ul>
-            </div>
+            <HoursList />
           </div>
 
           <ContactForm />
