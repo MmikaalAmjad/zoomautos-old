@@ -94,13 +94,9 @@ const [formData, setFormData] = useState<Record<string, any>>({
   else{
    
       
-        try {
-          // Update all vehicles with shared collection details
-          const updatedVehicles = formData.multidropoff.map((vehicle:any) => ({
+        const updatedVehicles = formData.multidropoff.map((vehicle:any) => ({
             ...vehicle,
-            
           }));
-      
           const payload = {
             formType: "Sub Contract Jobs",
             ...formData,
@@ -108,12 +104,10 @@ const [formData, setFormData] = useState<Record<string, any>>({
             status:'pending',
             Review:'No',
           };
-      
-    const subject = encodeURIComponent(`Multi Drop-off Quote Request`);
-    const body = encodeURIComponent(`Service Type: MULTI DROP OFF\nForm Data: ${JSON.stringify(payload, null, 2)}`);
-    window.location.href = `mailto:noreply@zoomautos.co.uk?subject=${subject}&body=${body}`;
-    setSuccess(true);
-      }
+          const subject = encodeURIComponent(`Multi Drop-off Quote Request`);
+          const body = encodeURIComponent(`Service Type: MULTI DROP OFF\nForm Data: ${JSON.stringify(payload, null, 2)}`);
+          window.location.href = `mailto:noreply@zoomautos.co.uk?subject=${subject}&body=${body}`;
+          setSuccess(true);
       };
     
   const [existingIds, setExistingIds] = useState(new Set());
