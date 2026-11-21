@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="80" viewBox="0 0 200 80">
+  <rect width="200" height="80" fill="#e80f17" rx="8"/>
+  <!-- M shape -->
+  <text x="10" y="50" font-family="Arial" font-weight="bold" font-size="38" fill="white">M</text>
+  <text x="52" y="38" font-family="Arial" font-weight="bold" font-size="13" fill="white">MOTOR</text>
+  <text x="52" y="56" font-family="Arial" font-weight="bold" font-size="13" fill="#01103b">FLEET</text>
+  <!-- Speedometer arc -->
+  <path d="M140 55 A28 28 0 0 1 192 55" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+  <line x1="166" y1="27" x2="166" y2="38" stroke="white" stroke-width="2"/>
+  <line x1="150" y1="31" x2="156" y2="41" stroke="white" stroke-width="2"/>
+  <line x1="182" y1="31" x2="176" y2="41" stroke="white" stroke-width="2"/>
+  <line x1="166" y1="55" x2="175" y2="37" stroke="#01103b" stroke-width="3" stroke-linecap="round"/>
+</svg>

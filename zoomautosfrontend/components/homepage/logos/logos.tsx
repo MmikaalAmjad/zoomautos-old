@@ -6,18 +6,22 @@ import React from "react";
 import Slider, { Settings } from "react-slick";
 
 const logos = [
-  "/1.png",
-  "/22.png",
-  "/Logo.png",
-  "/Logo192.png",
+  "/client-autogroup.svg",
+  "/client-driveuk.svg",
+  "/client-motorfleet.svg",
+  "/client-elitecar.svg",
+  "/client-rapidlogistics.svg",
+  "/client-premiumdealers.svg",
+  "/client-britishauto.svg",
   "/Logo4.png",
+  "/Logo.png",
 ];
 
 const LogoSlideshow: React.FC = () => {
   const sliderSettings: Settings = {
     dots: false,
     infinite: true,
-    speed: 6000,
+    speed: 4000,
     slidesToShow: Math.min(logos.length, 5),
     slidesToScroll: 1,
     autoplay: true,
@@ -26,6 +30,7 @@ const LogoSlideshow: React.FC = () => {
     arrows: false,
     pauseOnHover: false,
     responsive: [
+      { breakpoint: 1200, settings: { slidesToShow: 4 } },
       { breakpoint: 992, settings: { slidesToShow: 3 } },
       { breakpoint: 576, settings: { slidesToShow: 2 } },
     ],
@@ -42,7 +47,7 @@ const LogoSlideshow: React.FC = () => {
             <img
               src={img}
               alt={`Client logo ${index + 1}`}
-              style={{ width: "100%", height: "120px", objectFit: "contain" }}
+              style={{ width: "100%", height: "80px", objectFit: "contain", padding: "0 10px" }}
             />
           </div>
         ))}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="80" viewBox="0 0 200 80">
+  <rect width="200" height="80" fill="#f8f8f8" rx="8"/>
+  <rect x="0" y="0" width="200" height="80" fill="none" stroke="#ddd" stroke-width="1" rx="8"/>
+  <!-- Car silhouette -->
+  <path d="M20 52 L20 44 L32 32 L60 28 L80 32 L88 44 L88 52 Z" fill="#01103b"/>
+  <circle cx="34" cy="52" r="7" fill="#333" stroke="#01103b" stroke-width="2"/>
+  <circle cx="74" cy="52" r="7" fill="#333" stroke="#01103b" stroke-width="2"/>
+  <text x="100" y="38" font-family="Arial" font-weight="bold" font-size="16" fill="#01103b">DRIVE</text>
+  <text x="100" y="58" font-family="Arial" font-weight="bold" font-size="16" fill="#e80f17">UK</text>
+</svg>

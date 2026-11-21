@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="80" viewBox="0 0 200 80">
+  <rect width="200" height="80" fill="white" rx="8"/>
+  <rect x="0" y="0" width="200" height="80" fill="none" stroke="#01103b" stroke-width="2" rx="8"/>
+  <!-- Diamond shape -->
+  <polygon points="40,10 60,40 40,70 20,40" fill="#01103b"/>
+  <polygon points="40,20 52,40 40,60 28,40" fill="#e80f17"/>
+  <text x="75" y="35" font-family="Georgia" font-style="italic" font-size="15" fill="#01103b">Elite</text>
+  <text x="75" y="56" font-family="Arial" font-weight="bold" font-size="14" fill="#e80f17">CAR SALES</text>
+</svg>
