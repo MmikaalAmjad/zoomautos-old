@@ -7,7 +7,6 @@ const services = [
   { description: "Transported Vehicle Movements — We use specialist vehicle transporters to safely move your vehicles without adding mileage, ideal for prestige and performance cars." },
   { description: "Breakdown & Accident Recovery — 24/7 nationwide recovery service with fast response times. We get your vehicle to its destination safely after a breakdown or accident." },
   { description: "Emergency Motorway Assistance — Rapid response to motorway incidents, ensuring your vehicle is recovered quickly and safely with minimal disruption." },
-  { description: "Fleet Logistics — Comprehensive fleet management and large-scale vehicle movements for dealerships, leasing companies, and corporate fleet operators." },
   { description: "Auction Collections & Deliveries — Efficient collection and delivery of vehicles from UK auctions, ensuring timely and secure transport to your site or customer." },
 ];
 
